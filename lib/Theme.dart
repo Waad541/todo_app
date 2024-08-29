@@ -18,8 +18,8 @@ class MyTheme{
     ),
     textTheme: TextTheme(
       bodyMedium: TextStyle(
-        fontSize: 18,
-        fontWeight: FontWeight.w300,
+        fontSize: 20,
+        fontWeight: FontWeight.w400,
         color: Colors.black
       ),
       bodyLarge: TextStyle(
@@ -47,14 +47,14 @@ class MyTheme{
   ),
       textTheme: TextTheme(
           bodyMedium: TextStyle(
-              fontSize: 18,
+              fontSize: 20,
               fontWeight: FontWeight.w400,
               color: Colors.white
           ),
         bodyLarge: TextStyle(
             fontSize: 25,
-            fontWeight: FontWeight.w400,
-            color: Colors.black
+            fontWeight: FontWeight.w500,
+            color: Colors.white
         ),
       )
 

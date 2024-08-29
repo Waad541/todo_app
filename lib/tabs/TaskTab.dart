@@ -1,4 +1,5 @@
 import 'package:calendar_timeline/calendar_timeline.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:todo_app/firebase_functions.dart';
 
@@ -36,7 +37,7 @@ class _TaskTabState extends State<TaskTab> {
           activeDayColor: Colors.white,
           activeBackgroundDayColor: Color(0xff5D9CEC),
           selectableDayPredicate: (date) => date.day != 23,
-          locale: 'en_ISO',
+          locale: context.locale== Locale('en')?'en':'ar',
         ),
         SizedBox(height: 18),
         StreamBuilder(
@@ -59,7 +60,7 @@ class _TaskTabState extends State<TaskTab> {
             if (tasks.isEmpty) {
               return Center(
                   child: Text(
-                'No Tasks',
+                'noTasks'.tr(),
                     style: Theme.of(context).textTheme.bodyLarge,
               ));
             }

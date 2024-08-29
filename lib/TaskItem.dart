@@ -1,9 +1,13 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
+import 'package:provider/provider.dart';
 import 'package:todo_app/Theme.dart';
 import 'package:todo_app/edit.dart';
 import 'package:todo_app/firebase_functions.dart';
 import 'package:todo_app/models/taskmodel.dart';
+
+import 'Providers/my_provider.dart';
 
 class TaskItem extends StatelessWidget {
   TaskModel task;
@@ -11,13 +15,14 @@ class TaskItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var provider = Provider.of<MyProvider>(context);
     return Container(
       height: 115,
       width: double.infinity,
       margin: EdgeInsets.symmetric(horizontal: 10),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(25),
-        color: Theme.of(context).brightness == Brightness.light
+        color: Theme.of(context).brightness == Brightness.dark
             ? Color(0xff141922)
             : Colors.white,
       ),
@@ -27,17 +32,22 @@ class TaskItem extends StatelessWidget {
             onPressed: (context) {
               FirebaseFunction.deleteTask(task.id);
             },
-            label: 'Delete',
+            label: 'delete'.tr(),
             backgroundColor: Colors.red,
             icon: Icons.delete,
             borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(25), bottomLeft: Radius.circular(25)),
+              topLeft: context.locale == Locale('en') ? Radius.circular(25) : Radius.zero,
+              bottomLeft: context.locale == Locale('en') ? Radius.circular(25) : Radius.zero,
+              topRight: context.locale == Locale('en') ? Radius.zero : Radius.circular(25),
+              bottomRight: context.locale == Locale('en') ? Radius.zero : Radius.circular(25),
+            )
+
           ),
           SlidableAction(
             onPressed: (context) {
               Navigator.pushNamed(context, Edit.routeName, arguments: task);
             },
-            label: 'Edit',
+            label: 'edit'.tr(),
             backgroundColor: Colors.blue,
             icon: Icons.edit,
           ),
@@ -59,18 +69,15 @@ class TaskItem extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text(
-                      task.title.toString(),
-                      style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-                        color: task.isDone ? Colors.green : Color(0xff5D9CEC),
-                      )
-                    ),
-                    Text(
-                      task.subtitle.toString(),
-                      style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                         color: task.isDone ? Colors.green : Colors.grey
-                      )
-                    ),
+                    Text(task.title.toString(),
+                        style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                              color: task.isDone
+                                  ? Colors.green
+                                  : Color(0xff5D9CEC),
+                            )),
+                    Text(task.subtitle.toString(),
+                        style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                            color: task.isDone ? Colors.green : Colors.grey)),
                   ],
                 ),
               ),

@@ -1,0 +1,17 @@
+{
+  "toDoList": "قائمة المهام",
+  "noTasks": "لا توجد مهام",
+  "addNewTask": "اضافه مهمه جديدة",
+  "title": "العنوان",
+  "description": "الوصف",
+  "selectTime": "اختر الوقت",
+  "addTask": "اضف المهمه",
+  "theme": "الوضع",
+  "language": "اللغه",
+  "arabic": "عربي",
+  "english": "انجليزي",
+  "light": "نهاري",
+  "dark": "ليلي",
+  "delete":"مسح",
+  "edit":"تعديل"
+}

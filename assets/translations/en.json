@@ -1,0 +1,18 @@
+{
+  "toDoList": "To Do List",
+  "noTasks": "No Tasks",
+  "addNewTask": "Add New Task",
+  "title": "Title",
+  "description": "Description",
+  "selectTime": "Select Time",
+  "addTask": "Add Task",
+  "theme": "Theme",
+  "language": "Language",
+  "arabic": "Arabic",
+  "english": "English",
+  "light": "Light",
+  "dark": "Dark",
+  "delete":"Delete",
+  "edit":"Edit"
+
+}
