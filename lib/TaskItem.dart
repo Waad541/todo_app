@@ -2,7 +2,6 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:provider/provider.dart';
-import 'package:todo_app/Theme.dart';
 import 'package:todo_app/edit.dart';
 import 'package:todo_app/firebase_functions.dart';
 import 'package:todo_app/models/taskmodel.dart';
@@ -15,7 +14,6 @@ class TaskItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var provider = Provider.of<MyProvider>(context);
     return Container(
       height: 115,
       width: double.infinity,

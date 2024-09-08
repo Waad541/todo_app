@@ -1,4 +1,5 @@
 import 'package:easy_localization/easy_localization.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:todo_app/Providers/my_provider.dart';
@@ -91,8 +92,8 @@ class _AddTaskBottomSheetState extends State<AddTaskBottomSheet> {
                 TaskModel task = TaskModel(
                     title: titleController.text,
                     subtitle: subtitleController.text,
-                    date:
-                        DateUtils.dateOnly(selectDate).millisecondsSinceEpoch);
+                    date: DateUtils.dateOnly(selectDate).millisecondsSinceEpoch,
+                    userId: FirebaseAuth.instance.currentUser!.uid);
                 FirebaseFunction.addTask(task);
                 Navigator.pop(context);
               },
