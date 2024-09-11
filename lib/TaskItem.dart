@@ -14,14 +14,15 @@ class TaskItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var provider=Provider.of<MyProvider>(context);
     return Container(
       height: 115,
       width: double.infinity,
       margin: EdgeInsets.symmetric(horizontal: 10),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(25),
-        color: Theme.of(context).brightness == Brightness.dark
-            ? Color(0xff141922)
+        color:  provider.appTheme==ThemeMode.dark ?
+            Color(0xff141922)
             : Colors.white,
       ),
       child: Slidable(

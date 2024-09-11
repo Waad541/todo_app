@@ -42,7 +42,6 @@ dependencies:
   provider: ^6.1.2
   easy_localization: ^3.0.7
   firebase_auth: ^5.2.0
-  firebase_crashlytics: ^4.1.0
 
 dev_dependencies:
   flutter_test:

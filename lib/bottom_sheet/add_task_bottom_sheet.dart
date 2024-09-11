@@ -93,7 +93,8 @@ class _AddTaskBottomSheetState extends State<AddTaskBottomSheet> {
                     title: titleController.text,
                     subtitle: subtitleController.text,
                     date: DateUtils.dateOnly(selectDate).millisecondsSinceEpoch,
-                    userId: FirebaseAuth.instance.currentUser!.uid);
+                    userId: FirebaseAuth.instance.currentUser!.uid,
+                );
                 FirebaseFunction.addTask(task);
                 Navigator.pop(context);
               },

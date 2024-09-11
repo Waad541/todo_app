@@ -44,6 +44,7 @@ class FirebaseFunction {
   static Stream<QuerySnapshot<TaskModel>> getTask(DateTime date) {
     var collection = getTaskCollection();
     return collection
+        .where("userId", isEqualTo: FirebaseAuth.instance.currentUser?.uid)
         .where('date',
             isEqualTo: DateUtils.dateOnly(date).millisecondsSinceEpoch)
         .snapshots();
